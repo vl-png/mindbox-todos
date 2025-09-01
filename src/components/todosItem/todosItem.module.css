@@ -1,0 +1,89 @@
+.item{
+  display:flex; 
+  align-items:center; 
+  gap:15px;
+  padding:15px; 
+  border-bottom:.5px solid var(--color-border);
+}
+
+
+.toggle{
+  appearance: none;
+  width:30px; 
+  height:30px; 
+  margin:0;
+  border-radius:50%; 
+  border:1px solid var(--color-border);
+  background:var(--color-surface); 
+  cursor:pointer; 
+  position:relative;
+  display:inline-grid; 
+  place-content:center;
+}
+
+.toggle::after{
+  content:'';
+  width:30px; height:30px;
+  background-color:  var(--color-check);
+  mask: url('../../assets/icons/Completed.svg') center/30px 30px no-repeat;
+  transform: scale(0);
+  transition: transform .12s ease, background-color .2s;
+}
+
+.toggle:checked{ border-color:var(--color-check); }
+
+.toggle:checked::after{ transform: scale(1); }
+
+.label{ font-size:24px; 
+    font-weight: var(--font-weight-base); 
+}
+
+.completed .label{ 
+    color: var(--color-muted); 
+    text-decoration: line-through; 
+}
+
+
+.edit{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  padding:15px 15px 15px 55px;
+  border:1px solid var(--color-border);
+  outline:none;
+  font-size:24px;
+  font-weight: var(--font-weight-base);
+  margin:0;
+  position:absolute; inset:0;
+  background:var(--color-surface);
+  color:var(--color-text);
+}
+
+.remove{
+  position:relative; 
+  margin-left:auto; 
+  width:40px; 
+  height:40px; 
+  border:0; 
+  background:transparent; 
+  cursor:pointer; 
+  opacity:0;
+}
+
+.item:hover .remove{ 
+    opacity:.4; 
+}
+
+.remove{ color: var(--color-remove); }
+.remove::after{ 
+    content:''; 
+    position:absolute; inset:0; margin:auto;
+    width:20px; height:20px; 
+    background-color: currentColor;
+    -webkit-mask: url('../../assets/icons/Remove.svg') center/contain no-repeat;
+            mask: url('../../assets/icons/Remove.svg') center/contain no-repeat; 
+}
+
+.remove:hover{ opacity:.9; }
+
+.editing{ position:relative; }

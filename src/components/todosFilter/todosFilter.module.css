@@ -1,0 +1,53 @@
+.todosFilter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-surface);
+    padding: 15px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 
+    0 8px 0 -3px var(--color-surface), 
+    0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+    0 16px 0 -6px var(--color-surface), 
+    0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
+.todoCount {
+    font-weight: var(--font-weight-base);
+    padding:3px 7px;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    list-style: none;
+}
+
+.filter{
+    font: inherit;
+    cursor:pointer; 
+    padding:3px 7px;
+    background:none; 
+    border:1px solid transparent; border-radius:3px;
+    color:inherit; 
+}
+
+.selected{ 
+    border-color:var(--color-accent); 
+}
+
+  
+.clearCompleted{
+    font: inherit;
+    background:none; 
+    padding:3px 7px;
+    border:1px solid transparent; border-radius:3px; 
+    color:inherit; 
+    cursor:pointer; 
+}
+
+.clearCompleted:hover{ 
+    border-color: var(--color-accent); 
+}
+
