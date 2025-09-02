@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styles from './todosControls.module.css';
+import { useState } from "react";
+import styles from "./todosControls.module.css";
 
 export function TodosControls({
   onAdd,
@@ -10,18 +10,18 @@ export function TodosControls({
   allCompleted: boolean;
   onToggleAll: () => void;
 }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const handleKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       onAdd(text);
-      setText('');
+      setText("");
     }
   };
 
   const handleAddClick = () => {
     onAdd(text);
-    setText('');
+    setText("");
   };
 
   return (
@@ -31,10 +31,12 @@ export function TodosControls({
         onClick={onToggleAll}
         aria-label="toggle all"
         className={styles.toggleAllBtn}
-        title={allCompleted ? 'Uncheck all' : 'Check all'}
+        title={allCompleted ? "Uncheck all" : "Check all"}
       >
         <span
-          className={`${styles.icon} ${allCompleted ? styles.iconToggleUp : styles.iconToggleDown}`}
+          className={`${styles.icon} ${
+            allCompleted ? styles.iconToggleUp : styles.iconToggleDown
+          }`}
           aria-hidden
         />
       </button>
@@ -49,7 +51,13 @@ export function TodosControls({
         name="new-todo-input"
         autoFocus
       />
-      <button type="button" className={styles.addTodoBtn} onClick={handleAddClick} aria-label="add todo" title="Add" >
+      <button
+        type="button"
+        className={styles.addTodoBtn}
+        onClick={handleAddClick}
+        aria-label="add todo"
+        title="Add"
+      >
         <span className={`${styles.icon} ${styles.iconAdd}`} aria-hidden />
       </button>
     </section>

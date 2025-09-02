@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
-import type { Todo } from '../../utils/types';
-import styles from './todosItem.module.css';
+import { useEffect, useRef, useState } from "react";
+import type { Todo } from "../../utils/types";
+import styles from "./todosItem.module.css";
 
 interface Props {
   todo: Todo;
@@ -29,12 +29,19 @@ export function TodosItem({ todo, onToggle, onRemove, onEdit }: Props) {
   };
 
   const onKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') commit();
-    if (e.key === 'Escape') cancel();
+    if (e.key === "Enter") commit();
+    if (e.key === "Escape") cancel();
   };
 
   return (
-    <li className={[todo.completed ? styles.completed : '', editing ? styles.editing : ''].join(' ').trim()}>
+    <li
+      className={[
+        todo.completed ? styles.completed : "",
+        editing ? styles.editing : "",
+      ]
+        .join(" ")
+        .trim()}
+    >
       <div className={styles.item}>
         <input
           className={styles.toggle}
@@ -43,8 +50,14 @@ export function TodosItem({ todo, onToggle, onRemove, onEdit }: Props) {
           onChange={() => onToggle(todo.id)}
           aria-label="toggle"
         />
-        <label className={styles.label} onDoubleClick={() => setEditing(true)}>{todo.title}</label>
-        <button className={styles.remove} onClick={() => onRemove(todo.id)} aria-label="remove" />
+        <label className={styles.label} onDoubleClick={() => setEditing(true)}>
+          {todo.title}
+        </label>
+        <button
+          className={styles.remove}
+          onClick={() => onRemove(todo.id)}
+          aria-label="remove"
+        />
       </div>
 
       {editing && (
